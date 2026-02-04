@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import emailjs from "emailjs-com";
 
 import githubLogo from "../../public/github.png";
 import linkedinLogo from "../../public/linkedin.png";
@@ -22,7 +21,7 @@ export default function Contact() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!form.name || !form.contact || !form.subject || !form.message) {
@@ -39,28 +38,32 @@ export default function Contact() {
 
     setStatus("Sending...");
 
-    emailjs
-      .send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          contact_info: form.contact,
+    try {
+      const response = await fetch('http://localhost:5000/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: form.name,
+          contact: form.contact,
           subject: form.subject,
           message: form.message,
-        },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        () => {
-          setStatus("✅ Message sent successfully!");
-          setForm({ name: "", contact: "", subject: "", message: "" });
-        },
-        (error) => {
-          console.error("FAILED...", error);
-          setStatus("❌ Failed to send. Try again later.");
-        }
-      );
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setStatus("✅ Message sent successfully!");
+        setForm({ name: "", contact: "", subject: "", message: "" });
+      } else {
+        setStatus("❌ Failed to send. " + (data.error || "Try again later."));
+      }
+    } catch (error) {
+      console.error("Error connecting to server:", error);
+      setStatus("❌ Server unreachable. Make sure backend is running.");
+    }
   };
 
   const quickLinks = [
