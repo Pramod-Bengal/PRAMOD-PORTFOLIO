@@ -135,7 +135,7 @@ export default function Resume() {
           <ul style={{ listStyle: "none", padding: 0, margin: 0, lineHeight: 1.8 }}>
             <li>
               <strong>B.Tech – Computer Science & Engineering</strong> — Srinivas University Institute of Engineering and Technology<br />
-              <span style={{ color: "#aaa" }}>2026 | CGPA: 8.34</span>
+              <span style={{ color: "#aaa" }}>2026 | CGPA: 8.49</span>
             </li>
           </ul>
         </motion.div>
@@ -155,9 +155,9 @@ export default function Resume() {
               <p style={{ margin: "4px 0", color: "#bbb" }}>Developed full-stack job portal with custom UI/UX design. Implemented job listings, recruiter workflows, and applications.</p>
             </li>
             <li style={{ marginBottom: 10 }}>
-              <strong style={{ color: "#e5e5e5" }}>Full-Stack Analytics Dashboard</strong> <br />
-              <span style={{ color: "#aaa", fontSize: 14 }}>Tech: Angular, TypeScript, Python (FastAPI/Flask), PostgreSQL</span>
-              <p style={{ margin: "4px 0", color: "#bbb" }}>Built login, dashboard, reports, filters, admin panel. Designed responsive, mobile-first UI with optimized SQL queries.</p>
+              <strong style={{ color: "#e5e5e5" }}>AgriMarket- Agricultural E-Commerce Platform</strong> <br />
+              <span style={{ color: "#aaa", fontSize: 14 }}>Tech: React, Python, Flask, MongoDB, Cloudinary</span>
+              <p style={{ margin: "4px 0", color: "#bbb" }}>Comprehensive agricultural marketplace connecting farmers directly with consumers. Features secure authentication, Cloudinary image uploads, and real-time inventory tracking.</p>
             </li>
             <li style={{ marginBottom: 10 }}>
               <strong style={{ color: "#e5e5e5" }}>Smart User Authentication & Management System</strong> <br />

@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
-import githubLogo from "../../public/github.png";
-import linkedinLogo from "../../public/linkedin.png";
-import gmailLogo from "../../public/gmail.png";
-
 import "../CSS/Contact.css"
 import '../index.css'
 
@@ -39,7 +35,8 @@ export default function Contact() {
     setStatus("Sending...");
 
     try {
-      const response = await fetch('http://localhost:5000/send-email', {
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const response = await fetch(`${API_URL}/send-email`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -67,9 +64,9 @@ export default function Contact() {
   };
 
   const quickLinks = [
-    { img: githubLogo, title: "GitHub", link: "https://github.com/Pramod-Bengal" },
-    { img: linkedinLogo, title: "LinkedIn", link: "https://www.linkedin.com/in/pramod-naik-8849862a2/" },
-    { img: gmailLogo, title: "Email", link: "mailto:pramodbenagal@gmail.com" },
+    { img: "/github.png", title: "GitHub", link: "https://github.com/Pramod-Bengal" },
+    { img: "/linkedin.png", title: "LinkedIn", link: "https://www.linkedin.com/in/pramod-naik-8849862a2/" },
+    { img: "/gmail.png", title: "Email", link: "mailto:pramodbenagal@gmail.com" },
   ];
 
   return (

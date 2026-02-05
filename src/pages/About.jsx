@@ -71,8 +71,10 @@ const AboutMe = () => {
         </p>
 
         <p>
-          4th-year B.Tech AI Engineering student with hands-on experience in ML & DL Projects. Proficient in Python, scikitlearn,pytorch,tensorflow and data preprocessing. Seeking internship opportunities to apply skills and contribute to
-          impactful AI solutions.
+          Software Developer skilled in Java, Python, Full-Stack Development, and secure REST API design.
+          Experienced in React, Angular, Spring Boot, Node.js, and SQL/NoSQL databases with strong focus on
+          authentication systems, analytics dashboards, and UI/UX-driven applications.
+          Proficient in writing clean, scalable, production-ready code.
         </p>
 
         {/* --- Education Section --- */}
@@ -140,7 +142,7 @@ const AboutMe = () => {
                   <strong>Srinivas University Institute of Engineering and Technology</strong>
                 </p>
                 <p style={{ color: "rgba(255,255,255,0.7)" }}>
-                  CGPA: 8.34
+                  CGPA: 8.49
                 </p>
                 <p style={{ color: "rgba(255,255,255,0.7)" }}>2026</p>
               </div>
@@ -148,7 +150,6 @@ const AboutMe = () => {
 
             {/* Other education hidden */}
             {/* --- Education Card 2 --- */}
-            {/*
             <motion.div
               whileHover={{
                 scale: 1.02,
@@ -175,7 +176,7 @@ const AboutMe = () => {
                     fontSize: "1.25rem",
                   }}
                 >
-                  Higher Secondary Education (12th Grade)
+                  Pre-University Course (PUC)
                 </h4>
                 <p
                   style={{
@@ -183,16 +184,14 @@ const AboutMe = () => {
                     marginBottom: "0.2rem",
                   }}
                 >
-                  <strong>R.S.M. Poonawala Experimental School</strong> — Ambika
-                  Niketan, Surat
+                  <strong>SDPT PU College</strong> — Mandarthi, Udupi, India
                 </p>
                 <p style={{ color: "rgba(255,255,255,0.7)" }}>
-                  Gujarat Board | Percentage: 78%
+                  Percentage: 78.8%
                 </p>
                 <p style={{ color: "rgba(255,255,255,0.7)" }}>Completed in 2022</p>
               </div>
             </motion.div>
-            */}
 
             {/* --- Education Card 3 --- */}
             {/*

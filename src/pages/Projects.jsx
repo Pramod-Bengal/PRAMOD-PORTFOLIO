@@ -4,41 +4,41 @@ import { Github, ExternalLink } from 'lucide-react'
 
 const PROJECTS = [
   {
+    title: 'Panto Furniture Landing Page',
+    desc: 'A modern and responsive landing page for a furniture brand, featuring elegant design and smooth interactions.',
+    ss: '/logos/image.png',
+    tech: ['In progress', 'React', 'Tailwind CSS'],
+    live: 'https://panto-furniture-landing-page-phi.vercel.app/',
+    code: 'https://github.com/Pramod-Bengal/Panto_furniture_landing_page'
+  },
+  {
     title: 'Cartify Global Market',
     desc: 'A full-featured global e-commerce marketplace built with modern web technologies, offering a seamless shopping experience.',
-    ss: '/portfolio.jpg', // Placeholder
+    ss: '/cartify.jpeg', // Placeholder
     tech: ['React', 'Node.js', 'MongoDB', 'Express'], // Assumed based on user profile
     live: 'https://cartify-global-market.onrender.com/',
-    code: '#'
+    code: 'https://github.com/Pramod-Bengal/cartify-global-market'
   },
   {
     title: 'Online Job Portal Management System',
     desc: 'Full-stack job portal with custom UI/UX design. Implemented job listings, recruiter workflows, and applications.',
-    ss: '/portfolio.jpg', // Placeholder
+    ss: '/job_portal.jpeg', // Placeholder
     tech: ['React', 'Next.js', 'Node.js', 'MySQL', 'TypeScript'],
-    live: '#',
-    code: '#'
+    live: 'https://online-job-portal-frontend-wc5f.onrender.com',
+    code: 'https://github.com/Pramod-Bengal/online-job-portal'
   },
   {
-    title: 'Full-Stack Analytics Dashboard',
-    desc: 'Analytics system with login, dashboard, reports, and filters. Designed responsive, mobile-first UI with optimized SQL queries.',
-    ss: '/ProfileX.png', // Placeholder
-    tech: ['Angular', 'TypeScript', 'Python', 'FastAPI', 'PostgreSQL'],
-    live: '#',
-    code: '#'
-  },
-  {
-    title: 'Smart User Authentication System',
-    desc: 'Secure authentication system implementing JWT and BCrypt encryption with a layered backend architecture.',
-    ss: '/Docuchat.png', // Placeholder
-    tech: ['Spring Boot', 'React', 'PostgreSQL', 'JWT'],
-    live: '#',
+    title: 'AgriMarket- Agricultural E-Commerce Platform',
+    desc: 'Comprehensive agricultural marketplace connecting farmers directly with consumers. Features secure authentication, Cloudinary image uploads, and real-time inventory tracking.',
+    ss: '/agrimarket.jpeg', // Placeholder
+    tech: ['React', 'Python', 'Flask', 'MongoDB', 'Cloudinary'],
+    live: 'https://form-tech.onrender.com/login',
     code: '#'
   },
   {
     title: 'Portfolio Website',
     desc: 'A modern and responsive portfolio built with React and Framer Motion, showcasing projects, skills, and achievements.',
-    ss: '/portfolio.jpg',
+    ss: '/logos/image copy.png',
     tech: ['React', 'Framer Motion', 'CSS'],
     live: '#',
     code: 'https://github.com/Pramod-Bengal'
