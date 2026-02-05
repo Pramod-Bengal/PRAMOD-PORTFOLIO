@@ -13,7 +13,9 @@ app.use(express.json());
 // Transporter Configuration
 // Note: For Gmail, you might need to use an App Password if 2FA is enabled.
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true, // true for 465, false for other ports
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
