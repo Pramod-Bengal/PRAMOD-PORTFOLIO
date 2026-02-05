@@ -13,19 +13,21 @@ app.use(express.json());
 // Transporter Configuration
 // Note: For Gmail, you might need to use an App Password if 2FA is enabled.
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false, // true for 465, false for 587
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
     },
     tls: {
-        rejectUnauthorized: false // Helps with some self-signed cert issues in cloud envs
+        rejectUnauthorized: false
     },
-    connectionTimeout: 60000, // 60 seconds
-    greetingTimeout: 60000,   // 60 seconds
-    socketTimeout: 60000,     // 60 seconds
-    logger: true,             // Log to console
-    debug: true               // Include debug info
+    connectionTimeout: 60000,
+    greetingTimeout: 60000,
+    socketTimeout: 60000,
+    logger: true,
+    debug: true
 });
 
 app.post('/send-email', (req, res) => {
