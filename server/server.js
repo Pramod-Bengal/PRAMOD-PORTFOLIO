@@ -61,6 +61,16 @@ app.post('/send-email', (req, res) => {
     });
 });
 
+const path = require('path');
+
+// Serve static files from dist
+app.use(express.static(path.join(__dirname, '../dist')));
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
+});
+
+// Catch-all route for SPA routing
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
