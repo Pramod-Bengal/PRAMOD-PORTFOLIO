@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import emailjs from '@emailjs/browser';
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 import "../CSS/Contact.css"
 import '../index.css'
 
 export default function Contact() {
+  const formRef = useRef();
   const [form, setForm] = useState({
     name: "",
     contact: "",
@@ -17,7 +19,7 @@ export default function Contact() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!form.name || !form.contact || !form.subject || !form.message) {
@@ -25,42 +27,23 @@ export default function Contact() {
       return;
     }
 
-    const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
-    const isEmail = emailPattern.test(form.contact);
-    if (!isEmail && isNaN(form.contact)) {
-      setStatus("⚠️ Please enter a valid email or phone number.");
-      return;
-    }
-
     setStatus("Sending...");
 
-    try {
-      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
-      const response = await fetch(`${API_URL}/send-email`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: form.name,
-          contact: form.contact,
-          subject: form.subject,
-          message: form.message,
-        }),
-      });
+    // Replace these with your actual EmailJS credentials
+    // Sign up at https://www.emailjs.com/
+    const SERVICE_ID = 'service_id'; // Get this from EmailJS dashboard
+    const TEMPLATE_ID = 'template_id'; // Get this from EmailJS dashboard
+    const PUBLIC_KEY = 'public_key'; // Get this from EmailJS dashboard
 
-      const data = await response.json();
-
-      if (response.ok && data.success) {
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
+      .then((result) => {
+        console.log(result.text);
         setStatus("✅ Message sent successfully!");
         setForm({ name: "", contact: "", subject: "", message: "" });
-      } else {
-        setStatus("❌ Failed to send. " + (data.error || "Try again later."));
-      }
-    } catch (error) {
-      console.error("Error connecting to server:", error);
-      setStatus("❌ Server unreachable. Make sure backend is running.");
-    }
+      }, (error) => {
+        console.log(error.text);
+        setStatus("❌ Failed to send. Please try again later.");
+      });
   };
 
   const quickLinks = [
@@ -118,6 +101,7 @@ export default function Contact() {
 
       {/* Contact Form */}
       <motion.form
+        ref={formRef}
         onSubmit={handleSubmit}
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
